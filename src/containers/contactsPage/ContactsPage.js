@@ -42,7 +42,7 @@ export const ContactsPage = ({ contacts, addContacts }) => {
       <section>
         <h2>Contacts</h2>
         <TileList
-          contacts={contacts}
+          tiles={contacts}
         />
       </section>
     </div>
