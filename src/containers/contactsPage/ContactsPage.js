@@ -20,14 +20,14 @@ export const ContactsPage = ({ contacts, addContacts }) => {
   };
 
   useEffect(() => {
-    const found = contacts.find(({ name }) => name === name );
+    const found = contacts.find((contact) => contact.name === name );
     setDuplicate(found === undefined ? false : true );
   }, [name, contacts, duplicate]);
 
   return (
     <div>
       <section>
-        <h2>Add Contact</h2>
+        <h2>Add Contact{duplicate && " - Contact already exist"}</h2>
         <ContactForm
           name={name}
           setName={setName}
