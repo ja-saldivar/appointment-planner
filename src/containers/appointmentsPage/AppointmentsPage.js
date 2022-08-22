@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { AppointmentForm } from "../../components/appointmentForm/AppointmentForm";
 import { TileList } from "../../components/tileList/TileList";
 
-export const AppointmentsPage = (appointments, contacts, addAppointments) => {
+export const AppointmentsPage = ({appointments, contacts, addAppointments}) => {
   const [title, setTitle] = useState('');
   const [contact, setContact] = useState('');
-  const [date, setdate] = useState('');
+  const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 
 
@@ -15,7 +15,7 @@ export const AppointmentsPage = (appointments, contacts, addAppointments) => {
     addAppointments(title, contact, date, time);
     setTitle('');
     setContact('');
-    setdate('');
+    setDate('');
     setTime('');
   };
 
@@ -24,13 +24,14 @@ export const AppointmentsPage = (appointments, contacts, addAppointments) => {
       <section>
         <h2>Add Appointment</h2>
         <AppointmentForm
+          contacts={contacts}
           title={title}
           contact={contact}
           date={date}
           time={time}
           setTitle={setTitle}
           setContact={setContact}
-          setdate={setdate}
+          setDate={setDate}
           setTime={setTime}
           handleSubmit={handleSubmit}
         />
@@ -39,7 +40,7 @@ export const AppointmentsPage = (appointments, contacts, addAppointments) => {
       <section>
         <h2>Appointments</h2>
         <TileList
-          appointments={appointments}
+          tiles={appointments}
         />
       </section>
     </div>
